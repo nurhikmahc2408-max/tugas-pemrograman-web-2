@@ -12,7 +12,10 @@ class AbsenController extends Controller
      */
     public function index()
     {
-        //
+        return view('absen.index', [
+        'title' => 'Data Absen',
+        'absen' => Absen::all(),
+    ]);
     }
 
     /**

@@ -18,7 +18,7 @@ class AbsenFactory extends Factory
     public function definition(): array
     {
         return [
-    'Nama_Karyawan' => fake()->name(),
+    'nama_karyawan' => fake()->name(),
     'tanggal' => fake()->date(),
     'jam_masuk' => fake()->time('H:i:s'),
     'jam_keluar' => fake()->time('H:i:s'),

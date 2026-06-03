@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('absens', function (Blueprint $table) {
     $table->id();
-    $table->string('Nama_Karyawan');
+    $table->string('nama_karyawan');
     $table->date('tanggal');
     $table->time('jam_masuk');
     $table->time('jam_keluar');
