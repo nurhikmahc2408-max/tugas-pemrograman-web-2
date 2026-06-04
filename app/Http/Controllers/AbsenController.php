@@ -12,7 +12,7 @@ class AbsenController extends Controller
      */
     public function index()
     {
-        return view('absen.index', [
+        return view('Absen.index', [
         'title' => 'Data Absen',
         'absen' => Absen::all(),
     ]);
@@ -23,7 +23,9 @@ class AbsenController extends Controller
      */
     public function create()
     {
-        //
+        return view('Absen.create', [
+        'title' => 'Tambah Data Absen'
+    ]);
     }
 
     /**
@@ -31,7 +33,31 @@ class AbsenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+        'nama_karyawan' => 'required|max:255',
+        'tanggal' => 'required|date',
+        'jam_masuk' => 'required',
+        'jam_keluar' => 'required',
+        'status' => 'required',
+    ],
+    [
+    'nama_karyawan.required' => 'Nama karyawan tidak boleh kosong',
+    'nama_karyawan.max' => 'Nama karyawan maksimal 255 karakter',
+
+    'tanggal.required' => 'Tanggal tidak boleh kosong',
+    'tanggal.date' => 'Format tanggal tidak valid',
+
+    'jam_masuk.required' => 'Jam masuk tidak boleh kosong',
+
+    'jam_keluar.required' => 'Jam keluar tidak boleh kosong',
+
+    'status.required' => 'Status tidak boleh kosong',
+    ]);
+
+Absen::create($validated);
+
+return to_route('absen.index')
+    ->withSuccess('Data absen berhasil ditambahkan');
     }
 
     /**
