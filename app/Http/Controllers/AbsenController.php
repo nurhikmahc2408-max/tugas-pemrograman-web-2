@@ -56,7 +56,7 @@ class AbsenController extends Controller
 
 Absen::create($validated);
 
-return to_route('absen.index')
+return to_route('Absen.index')
     ->withSuccess('Data absen berhasil ditambahkan');
     }
 
@@ -73,7 +73,10 @@ return to_route('absen.index')
      */
     public function edit(Absen $absen)
     {
-        //
+        return view('Absen.edit',[
+            'title' => 'Edit Absen',
+            'absen' => $absen,
+        ]);
     }
 
     /**
@@ -81,7 +84,30 @@ return to_route('absen.index')
      */
     public function update(Request $request, Absen $absen)
     {
-        //
+        $validated = $request->validate([
+    'nama_karyawan' => 'required|max:255',
+    'tanggal' => 'required|date',
+    'jam_masuk' => 'required',
+    'jam_keluar' => 'required',
+    'status' => 'required',
+    ],
+    [
+    'nama_karyawan.required' => 'Nama karyawan tidak boleh kosong',
+    'nama_karyawan.max' => 'Nama karyawan maksimal 255 karakter',
+
+    'tanggal.required' => 'Tanggal tidak boleh kosong',
+    'tanggal.date' => 'Format tanggal tidak valid',
+
+    'jam_masuk.required' => 'Jam masuk tidak boleh kosong',
+
+    'jam_keluar.required' => 'Jam keluar tidak boleh kosong',
+
+    'status.required' => 'Status tidak boleh kosong',
+]);
+
+$absen->fill($validated);
+return to_route('Absen.index')
+    ->withSuccess('Data absen berhasil diubah');
     }
 
     /**

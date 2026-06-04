@@ -17,6 +17,7 @@
                 <th>Jam Masuk</th>
                 <th>Jam Keluar</th>
                 <th>Status</th>
+                <th>Aksi</th>
             </tr>
         </thead>
 
@@ -29,6 +30,11 @@
                     <td>{{ $item->jam_masuk }}</td>
                     <td>{{ $item->jam_keluar }}</td>
                     <td>{{ $item->status }}</td>
+                    <td>
+                        <a class="btn btn-warning btn-sm" href="{{ route('Absen.edit', $item) }}" role="button">
+                            Edit
+                        </a>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
