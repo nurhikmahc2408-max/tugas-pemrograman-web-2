@@ -10,3 +10,4 @@ Route::get('/absen/create', [AbsenController::class, 'create'])->name('Absen.cre
 Route::post('/absen/store', [AbsenController::class, 'store'])->name('Absen.store');
 Route::get('/absen/{absen}/edit', [AbsenController::class, 'edit'])->name('Absen.edit');
 Route::put('/absen/{absen}', [AbsenController::class, 'update'])->name('Absen.update');
+Route::delete('/absen/{absen}', [AbsenController::class, 'destroy'])->name('Absen.destroy');

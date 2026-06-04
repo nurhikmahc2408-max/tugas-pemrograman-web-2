@@ -17,7 +17,7 @@
                 <th>Jam Masuk</th>
                 <th>Jam Keluar</th>
                 <th>Status</th>
-                <th>Aksi</th>
+                <th style="width: 160px;">Aksi</th>
             </tr>
         </thead>
 
@@ -30,10 +30,18 @@
                     <td>{{ $item->jam_masuk }}</td>
                     <td>{{ $item->jam_keluar }}</td>
                     <td>{{ $item->status }}</td>
-                    <td>
-                        <a class="btn btn-warning btn-sm" href="{{ route('Absen.edit', $item) }}" role="button">
-                            Edit
-                        </a>
+                    <td style="white-space: nowrap;">
+                        <a class="btn btn-warning btn-sm" href="{{ route('Absen.edit', $item) }}" role="button">Edit</a>
+
+                        <form action="{{ route('Absen.destroy', $item) }}" method="POST" class="d-inline">
+                            @method('DELETE')
+                            @csrf
+
+                            <button type="submit" class="btn btn-danger btn-sm"
+                                onclick="return confirm('Anda yakin?')">
+                                Delete
+                            </button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
