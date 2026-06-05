@@ -51,7 +51,10 @@
                     <td>{{ $item->no_hp }}</td>
 
                 </tr>
+                <td style="white-space: nowrap;">
+                    <a class="btn btn-warning btn-sm" href="{{ route('karyawan.edit', $item) }}"role="button">Edit</a>
 
+                </td>
             @empty
                 <tr>
                     <td colspan="5" class="text-center">

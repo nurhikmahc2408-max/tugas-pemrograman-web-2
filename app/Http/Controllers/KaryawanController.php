@@ -56,7 +56,10 @@ class KaryawanController extends Controller
      */
     public function edit(Karyawan $karyawan)
     {
-        //
+        return view('karyawan.edit',[
+            'title' => 'Edit Karyawan',
+            'karyawan' => $karyawan,
+        ]);
     }
 
     /**
@@ -64,7 +67,31 @@ class KaryawanController extends Controller
      */
     public function update(Request $request, Karyawan $karyawan)
     {
-        //
+        $validated = $request->validate([
+            'nama_karyawan' => 'required|max:255',
+            'jabatan' => 'required|max:255',
+            'alamat' => 'required|max:255',
+            'no_hp' => 'required|max:255',
+        ], [
+
+            'nama_karyawan.required' => 'Nama Karyawan tidak boleh kosong',
+            'nama_karyawan.max' => 'Nama Karyawan maximal 255 karakter',
+
+            'jabatan.required' => 'Jabatan tidak boleh kosong',
+            'jabatan.max' => 'Jabatan maximal 255 karakter',
+
+            'alamat.required' => 'Alamat tidak boleh kosong',
+            'alamat.max' => 'Alamat maximal 255 karakter',
+
+            'no_hp.required' => 'No HP tidak boleh kosong',
+            'no_hp.max' => 'No HP maximal 255 karakter',
+
+        ]);
+
+        $karyawan->update($validated);
+
+        return to_route('kecamatan.index')
+            ->withSuccess('Data Kecamatan berhasil diubah');
     }
 
     /**
