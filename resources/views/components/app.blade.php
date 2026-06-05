@@ -29,7 +29,7 @@
                     <a class="nav-link" href="{{ route('Absen.index') }}">Absen</a>
 
 
-                    <a class="nav-link" href="{{ route('Karyawan.index') }}">Karyawan</a>
+                    <a class="nav-link" href="{{ route('karyawan.index') }}">Karyawan</a>
 
                 </div>
             </div>

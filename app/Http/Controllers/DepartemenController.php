@@ -10,9 +10,20 @@ class DepartemenController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+ return view('Departemen.index', [
+    'title' => 'Departemen',
+    'departemens' => Departemen::latest()
+        ->when($request->search, function ($query, $search) {
+            return $query->where('nama_departemen', 'like', "%{$search}%")
+                ->orWhere('jabatan', 'like', "%{$search}%")
+                ->orWhere('alamat', 'like', "%{$search}%")
+                ->orWhere('no_hp', 'like', "%{$search}%");
+        })
+        ->paginate(5)
+        ->withQueryString(),
+]);
     }
 
     /**
