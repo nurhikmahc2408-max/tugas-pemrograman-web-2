@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Database\Seeders\DepartemenSeeder;
+use Database\Seeders\KaryawanSeeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,12 +17,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            $this->call([
-            AbsenSeeder::class
-        ]),
+        $this->call([
+            DepartemenSeeder::class,
+            KaryawanSeeder::class,
         ]);
     }
 }

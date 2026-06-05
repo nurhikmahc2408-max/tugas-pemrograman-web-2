@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('absens', function (Blueprint $table) {
-    $table->id();
-    $table->string('nama_karyawan');
-    $table->date('tanggal');
-    $table->time('jam_masuk');
-    $table->time('jam_keluar');
-    $table->enum('status', ['Hadir', 'Izin', 'Sakit', 'Alfa']);
-    $table->timestamps();
-});
+        Schema::create('departemens', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama_departemen');
+            $table->string('kepala_departemen');
+            $table->string('lokasi');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('absens');
+        Schema::dropIfExists('departemens');
     }
 };

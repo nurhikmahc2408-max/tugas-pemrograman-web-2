@@ -115,6 +115,7 @@ return to_route('Absen.index')
      */
     public function destroy(Absen $absen)
     {
+        //
         $absen->delete();
         return to_route('Absen.index')->withSuccess('Data berhasil dihapus');
     }

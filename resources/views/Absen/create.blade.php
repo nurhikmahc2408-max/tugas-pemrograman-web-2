@@ -1,72 +1,39 @@
 <x-app>
-    <x-slot:title>{{ $title }}</x-slot>
+    <x-slot:title>Data Absen</x-slot>
 
-    <form method="POST" action="{{ route('Absen.store') }}">
-        @csrf
+    <a href="{{ route('Absen.create') }}" class="btn btn-primary mb-3">Create</a>
 
-        <div class="mb-3">
-            <label for="nama_karyawan" class="form-label">Nama Karyawan</label>
-            <input type="text" class="form-control @error('nama_karyawan') is-invalid @enderror" id="nama_karyawan"
-                name="nama_karyawan" value="{{ old('nama_karyawan') }}">
-
-            @error('nama_karyawan')
-                <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="tanggal" class="form-label">Tanggal</label>
-            <input type="date" class="form-control @error('tanggal') is-invalid @enderror" id="tanggal"
-                name="tanggal" value="{{ old('tanggal') }}">
-
-            @error('tanggal')
-                <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="jam_masuk" class="form-label">Jam Masuk</label>
-            <input type="time" class="form-control @error('jam_masuk') is-invalid @enderror" id="jam_masuk"
-                name="jam_masuk" value="{{ old('jam_masuk') }}">
-
-            @error('jam_masuk')
-                <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="jam_keluar" class="form-label">Jam Keluar</label>
-            <input type="time" class="form-control @error('jam_keluar') is-invalid @enderror" id="jam_keluar"
-                name="jam_keluar" value="{{ old('jam_keluar') }}">
-
-            @error('jam_keluar')
-                <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="status" class="form-label">Status</label>
-            <select class="form-select @error('status') is-invalid @enderror" id="status" name="status">
-
-                <option value="">-- Pilih Status --</option>
-                <option value="Hadir">Hadir</option>
-                <option value="Izin">Izin</option>
-                <option value="Sakit">Sakit</option>
-                <option value="Alfa">Alfa</option>
-            </select>
-
-            @error('status')
-                <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
-        </div>
-
-        <a class="btn btn-warning" href="{{ route('Absen.index') }}" role="button">
-            Cancel
-        </a>
-
-        <button type="submit" class="btn btn-primary">
-            Submit
-        </button>
-    </form>
-
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama Karyawan</th>
+                <th>Tanggal</th>
+                <th>Jam Masuk</th>
+                <th>Jam Keluar</th>
+                <th>Status</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($absens as $index => $absen)
+                <tr>
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ $absen->nama_karyawan }}</td>
+                    <td>{{ $absen->tanggal }}</td>
+                    <td>{{ $absen->jam_masuk }}</td>
+                    <td>{{ $absen->jam_keluar }}</td>
+                    <td>{{ $absen->status ?? '-' }}</td>
+                    <td>
+                        <a href="{{ route('Absen.edit', $absen->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                        <form action="{{ route('Absen.destroy', $absen->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 </x-app>
