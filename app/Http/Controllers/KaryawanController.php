@@ -48,7 +48,11 @@ class KaryawanController extends Controller
      */
     public function show(Karyawan $karyawan)
     {
-        //
+        return view('karyawan.show', 
+        ['title' => 'Detail Karyawan',
+        'karyawan'=> $karyawan,
+        
+        ]);
     }
 
     /**

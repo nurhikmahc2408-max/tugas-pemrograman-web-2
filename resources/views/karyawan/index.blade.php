@@ -59,6 +59,7 @@
 
                 </tr>
                 <td style="white-space: nowrap;">
+                    <a class="btn btn-info btn-sm" href="{{ route('karyawan.show', $item) }}"role="button">Detail</a>
                     <a class="btn btn-warning btn-sm" href="{{ route('karyawan.edit', $item) }}"role="button">Edit</a>
 
                 </td>
@@ -68,6 +69,7 @@
                         Data Karyawan Tidak Ditemukan
                     </td>
                 </tr>
+                <td colspan="5" class="text-center">Data Kecamatan Tidak Ditemukan</td>
             @endforelse
 
         </tbody>
