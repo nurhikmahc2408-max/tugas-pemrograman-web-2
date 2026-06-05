@@ -11,7 +11,7 @@
     <form action="{{ route('karyawan.index') }}" method="GET" class="mb-3">
 
         <div class="row">
-
+            <a class="btn btn-primary mb-3" href="{{ route('karyawan.create') }}" role="button">Create</a>
             <div class="col-md-10">
                 <input type="text" name="search" class="form-control" placeholder="Cari Karyawan..."
                     value="{{ request('search') }}">
