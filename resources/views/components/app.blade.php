@@ -26,11 +26,10 @@
 
                 <div class="navbar-nav ms-auto">
 
-                    <a class="nav-link" href="{{ route('Absen.index') }}">Petugas</a>
+                    <a class="nav-link" href="{{ route('Absen.index') }}">Absen</a>
 
-                    <a class="nav-link" href="#">Kecamatan</a>
 
-                    <a class="nav-link" href="#">Dusun</a>
+                    <a class="nav-link" href="{{ route('Karyawan.index') }}">Karyawan</a>
 
                 </div>
             </div>

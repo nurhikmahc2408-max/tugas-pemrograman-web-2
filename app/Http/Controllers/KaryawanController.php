@@ -10,9 +10,20 @@ class KaryawanController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        return view('Karyawan.index', [
+    'title' => 'Karyawan',
+    'karyawans' => Karyawan::latest()
+        ->when($request->search, function ($query, $search) {
+            return $query->where('nama_karyawan', 'like', "%{$search}%")
+                ->orWhere('jabatan', 'like', "%{$search}%")
+                ->orWhere('alamat', 'like', "%{$search}%")
+                ->orWhere('no_hp', 'like', "%{$search}%");
+        })
+        ->paginate(5)
+        ->withQueryString(),
+]);
     }
 
     /**

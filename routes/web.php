@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KaryawanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AbsenController;
 
@@ -11,4 +12,4 @@ Route::post('/absen/store', [AbsenController::class, 'store'])->name('Absen.stor
 Route::get('/absen/{absen}/edit', [AbsenController::class, 'edit'])->name('Absen.edit');
 Route::put('/absen/{absen}', [AbsenController::class, 'update'])->name('Absen.update');
 Route::delete('/absen/{absen}', [AbsenController::class, 'destroy'])->name('Absen.destroy');
-
+Route::resource('karyawan', KaryawanController::class);
