@@ -16,7 +16,14 @@
                 <input type="text" name="search" class="form-control" placeholder="Cari Karyawan..."
                     value="{{ request('search') }}">
             </div>
+            <form action="{{ route('karyawan.destroy', $item) }}" method="POST" class="d-inline">
+                @method('DELETE')
+                @csrf
 
+                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin?')">
+                    Delete
+                </button>
+            </form>
             <div class="col-md-2">
                 <button class="btn btn-primary w-100">Search</button>
             </div>

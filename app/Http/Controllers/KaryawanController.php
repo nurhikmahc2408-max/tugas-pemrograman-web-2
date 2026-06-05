@@ -90,8 +90,8 @@ class KaryawanController extends Controller
 
         $karyawan->update($validated);
 
-        return to_route('kecamatan.index')
-            ->withSuccess('Data Kecamatan berhasil diubah');
+        return to_route('karyawan.index')
+            ->withSuccess('Data Karyawan berhasil diubah');
     }
 
     /**
@@ -99,6 +99,7 @@ class KaryawanController extends Controller
      */
     public function destroy(Karyawan $karyawan)
     {
-        //
+        $karyawan->delete();
+        return to_route('karyawan.index')->withSuccess('Data Karyawan berhasil dihapus');
     }
 }
