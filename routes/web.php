@@ -16,3 +16,6 @@ Route::delete('/absen/{absen}', [AbsenController::class, 'destroy'])->name('Abse
 Route::get('/departemen', [DepartemenController::class, 'index'])->name('Departemen.index');
 Route::get('/departemen/create', [DepartemenController::class, 'create'])->name('Departemen.create');
 Route::post('/departemen/store', [DepartemenController::class, 'store'])->name('Departemen.store');
+Route::get('/departemen/{departemen}/edit', [DepartemenController::class, 'edit'])->name('Departemen.edit');
+Route::put('/departemen/{departemen}', [DepartemenController::class, 'update'])->name('Departemen.update');
+Route::delete('/departemen/{departemen}', [DepartemenController::class, 'destroy'])->name('Departemen.destroy');

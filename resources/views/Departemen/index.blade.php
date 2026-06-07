@@ -34,6 +34,7 @@
                 <th>Nama Departemen</th>
                 <th>Kode Departemen</th>
                 <th>Lokasi</th>
+                <th style="width: 160px;">Aksi</th>
             </tr>
 
         </thead>
@@ -47,9 +48,12 @@
                     <td>{{ $item->nama_departemen }}</td>
                     <td>{{ $item->kode_departemen }}</td>
                     <td>{{ $item->lokasi }}</td>
-
+                    <td style="white-space: nowrap;">
+                        <a class="btn btn-warning btn-sm"
+                            href="{{ route('Departemen.edit', $item) }}"role="button">Edit</a>
                 </tr>
 
+                </td>
             @empty
                 <tr>
                     <td colspan="4" class="text-center">Data Departemen Tidak Ditemukan</td>

@@ -13,7 +13,7 @@ return new class extends Migration
 
             $table->string('nama_departemen');
             $table->string('kode_departemen')->unique();
-            $table->string('lokasi');
+            $table->string('alamat_kantor');
 
             $table->timestamps();
         });

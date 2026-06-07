@@ -78,7 +78,10 @@ return to_route('Departemen.index')
      */
     public function edit(Departemen $departemen)
     {
-        //
+        return view('Departemen.edit',[
+            'title' => 'Edit Departemen',
+            'departemen' => $departemen,
+        ]);
     }
 
     /**
@@ -86,7 +89,26 @@ return to_route('Departemen.index')
      */
     public function update(Request $request, Departemen $departemen)
     {
-        //
+        $validated = $request->validate([
+    'nama_departemen' => 'required|max:255',
+    'kode_departemen' => 'required|max:255|unique:departemens,kode_departemen,' . $departemen->id,
+    'alamat_kantor' => 'required|max:255',
+], [
+
+    'nama_departemen.required' => 'Nama Departemen tidak boleh kosong',
+    'nama_departemen.max' => 'Nama Departemen maksimal 255 karakter',
+
+    'kode_departemen.required' => 'Kode Departemen tidak boleh kosong',
+    'kode_departemen.max' => 'Kode Departemen maksimal 255 karakter',
+    'kode_departemen.unique' => 'Kode Departemen sudah digunakan',
+
+    'alamat_kantor.required' => 'Alamat Kantor tidak boleh kosong',
+    'alamat_kantor.max' => 'Alamat Kantor maksimal 255 karakter',
+
+]);
+
+return to_route('Departemen.index')
+    ->withSuccess('Data Departemen berhasil diubah');
     }
 
     /**
