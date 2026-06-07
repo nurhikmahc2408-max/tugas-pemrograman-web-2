@@ -9,7 +9,7 @@
     @endsession
 
     <form action="{{ route('Departemen.index') }}" method="GET" class="mb-3">
-
+        <a class="btn btn-primary mb-3" href="{{ route('Departemen.create') }}" role="button">Create</a>
         <div class="row">
 
             <div class="col-md-10">

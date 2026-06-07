@@ -30,7 +30,8 @@ class DepartemenController extends Controller
      */
     public function create()
     {
-        //
+        return view('Departemen.create', 
+        ['title' => 'Tambah Departemen',]);
     }
 
     /**
@@ -38,7 +39,30 @@ class DepartemenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+
+    'nama_departemen' => 'required|max:255',
+    'kode_departemen' => 'required|max:255|unique:departemens',
+    'alamat_kantor' => 'required|max:255',
+
+], [
+
+    'nama_departemen.required' => 'Nama Departemen tidak boleh kosong',
+    'nama_departemen.max' => 'Nama Departemen maksimal 255 karakter',
+
+    'kode_departemen.required' => 'Kode Departemen tidak boleh kosong',
+    'kode_departemen.max' => 'Kode Departemen maksimal 255 karakter',
+    'kode_departemen.unique' => 'Kode Departemen sudah digunakan',
+
+    'alamat_kantor.required' => 'Alamat Kantor tidak boleh kosong',
+    'alamat_kantor.max' => 'Alamat Kantor maksimal 255 karakter',
+
+]);
+
+Departemen::create($validated);
+
+return to_route('Departemen.index')
+    ->withSuccess('Data Departemen berhasil ditambahkan');
     }
 
     /**
