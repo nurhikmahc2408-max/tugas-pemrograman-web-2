@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->foreignId('departemen_id')
-                ->constrained()
+                ->constrained('departemens')
                 ->cascadeOnDelete();
 
             $table->string('nama_karyawan');

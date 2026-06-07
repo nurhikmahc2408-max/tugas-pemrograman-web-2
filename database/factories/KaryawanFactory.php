@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Karyawan;
-use App\Models\Departemen;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,9 +18,19 @@ class KaryawanFactory extends Factory
     public function definition(): array
     {
         return [
-            'departemen_id' => Departemen::factory(),
             'nama_karyawan' => fake()->name(),
-            'jabatan' => fake()->jobTitle(),
+            'jabatan' => fake()->randomElement([
+                'Manager',
+                'Supervisor',
+                'Staff IT',
+                'Staff Keuangan',
+                'Staff HRD',
+                'Admin',
+                'Marketing',
+                'Operator',
+                'Teknisi',
+                'Customer Service',
+            ]),
             'alamat' => fake()->address(),
             'no_hp' => fake()->phoneNumber(),
         ];

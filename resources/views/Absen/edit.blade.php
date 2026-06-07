@@ -6,7 +6,7 @@
         @method('PUT')
 
         <div class="mb-3">
-            <label for="nama_karyawan" class="form-label">Nama Karyawan</label>
+            <label for="nama_karyawan" class="form-label">nama karyawan</label>
 
             <input type="text" class="form-control @error('nama_karyawan') is-invalid @enderror" id="nama_karyawan"
                 name="nama_karyawan" value="{{ old('nama_karyawan', $absen->nama_karyawan) }}">

@@ -20,17 +20,15 @@ class DepartemenFactory extends Factory
         return [
             'nama_departemen' => fake()->randomElement([
                 'IT',
-                'Human Resource',
                 'Keuangan',
+                'SDM',
                 'Marketing',
-                'Operasional',
                 'Produksi',
+                'Operasional',
                 'Logistik',
                 'Customer Service',
-                'Penjualan',
-                'Administrasi',
             ]),
-            'kepala_departemen' => fake()->name(),
+            'kode_departemen' => 'DEP' . fake()->unique()->numberBetween(100, 999),
             'lokasi' => fake()->city(),
         ];
     }

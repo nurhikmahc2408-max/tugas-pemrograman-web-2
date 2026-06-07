@@ -28,29 +28,54 @@
 
                     <a class="nav-link" href="{{ route('Absen.index') }}">Absen</a>
 
+                    <a class="nav-link" href="#">Departemen</a>
 
-                    <a class="nav-link" href="{{ route('karyawan.index') }}">Karyawan</a>
+                    <a class="nav-link" href="#">Karyawan</a>
 
                 </div>
             </div>
         </div>
     </nav>
 
-    < class="bg-info py-5 text-center text-white">
+    <div class="bg-info py-5 text-center text-white">
 
         <h1 class="fw-bold">
             {{ $title }}
         </h1>
 
+        <a class="navbar-brand" href="#"></a>
 
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 
-        <div class="container my-5">
-            {{ $slot }}
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+            <div class="navbar-nav ms-auto">
+
+                <a class="nav-link" href="{{ route('Absen.index') }}">Absen</a>
+            </div>
         </div>
+    </div>
+    </nav>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
-        </script>
+    <class="bg-info py-5 text-center text-white">
+
+    <h1 class="fw-bold">
+        {{ $title }}
+    </h1>
+
+
+
+    <div class="container my-5">
+        {{ $slot }}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+    </script>
 
 </body>
 

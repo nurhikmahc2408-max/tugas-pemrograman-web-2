@@ -41,8 +41,8 @@ class AbsenController extends Controller
         'status' => 'required',
     ],
     [
-    'nama_karyawan.required' => 'Nama karyawan tidak boleh kosong',
-    'nama_karyawan.max' => 'Nama karyawan maksimal 255 karakter',
+    'nama_karyawan.required' => 'nama karyawan tidak boleh kosong',
+    'nama_karyawan.max' => 'nama karyawan maksimal 255 karakter',
 
     'tanggal.required' => 'Tanggal tidak boleh kosong',
     'tanggal.date' => 'Format tanggal tidak valid',
@@ -92,8 +92,8 @@ return to_route('Absen.index')
     'status' => 'required',
     ],
     [
-    'nama_karyawan.required' => 'Nama karyawan tidak boleh kosong',
-    'nama_karyawan.max' => 'Nama karyawan maksimal 255 karakter',
+    'nama_karyawan.required' => 'nama karyawan tidak boleh kosong',
+    'nama_karyawan.max' => 'nama karyawan maksimal 255 karakter',
 
     'tanggal.required' => 'Tanggal tidak boleh kosong',
     'tanggal.date' => 'Format tanggal tidak valid',
@@ -115,8 +115,7 @@ return to_route('Absen.index')
      */
     public function destroy(Absen $absen)
     {
-        //
-        $absen->delete();
+        $absen->delete;
         return to_route('Absen.index')->withSuccess('Data berhasil dihapus');
     }
 }

@@ -13,41 +13,54 @@ class KaryawanSeeder extends Seeder
      */
     public function run(): void
     {
-        $karyawans = [
-            [
-                'nama_karyawan' => 'Andi Saputra',
-                'jabatan' => 'Manager',
-                'alamat' => 'Makassar',
-                'departemen_id' => 1,
+        $dataDepartemen = [
+            'IT' => [
+                'Andi',
+                'Budi',
+                'Citra',
+                'Dian',
+                'Eko',
             ],
-            [
-                'nama_karyawan' => 'Budi Santoso',
-                'jabatan' => 'Staff IT',
-                'alamat' => 'Gowa',
-                'departemen_id' => 1,
+            'Keuangan' => [
+                'Fajar',
+                'Gina',
+                'Hendra',
+                'Indah',
+                'Joko',
             ],
-            [
-                'nama_karyawan' => 'Citra Dewi',
-                'jabatan' => 'Staff HRD',
-                'alamat' => 'Maros',
-                'departemen_id' => 2,
+            'SDM' => [
+                'Kiki',
+                'Lina',
+                'Maya',
+                'Nanda',
+                'Oki',
             ],
-            [
-                'nama_karyawan' => 'Dian Pratama',
-                'jabatan' => 'Supervisor',
-                'alamat' => 'Takalar',
-                'departemen_id' => 2,
-            ],
-            [
-                'nama_karyawan' => 'Eko Wijaya',
-                'jabatan' => 'Admin',
-                'alamat' => 'Makassar',
-                'departemen_id' => 3,
+            'Marketing' => [
+                'Putri',
+                'Rian',
+                'Santi',
+                'Tono',
+                'Vina',
             ],
         ];
 
-        foreach ($karyawans as $karyawan) {
-            Karyawan::create($karyawan);
+        foreach ($dataDepartemen as $namaDepartemen => $namaKaryawans) {
+        $departemen = Departemen::query()
+            ->where('nama_departemen', $namaDepartemen)
+            ->first();
+            if ($departemen) {
+
+                foreach ($namaKaryawans as $namaKaryawan) {
+
+                    Karyawan::factory()->create([
+                        'departemen_id' => $departemen->id,
+                        'nama_karyawan' => $namaKaryawan,
+                    ]);
+
+                }
+
+            }
+
         }
     }
 }
