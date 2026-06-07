@@ -28,8 +28,7 @@
 
                     <a class="nav-link" href="{{ route('Absen.index') }}">Absen</a>
 
-                    <a class="nav-link" href="#">Departemen</a>
-
+                    <a class="nav-link" href="{{ route('Departemen.index') }}">Departemen</a>
                     <a class="nav-link" href="#">Karyawan</a>
 
                 </div>
