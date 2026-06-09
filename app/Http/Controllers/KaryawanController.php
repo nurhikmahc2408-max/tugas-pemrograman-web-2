@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Karyawan;
+use App\Models\Departemen;
 use Illuminate\Http\Request;
 
 class KaryawanController extends Controller
@@ -12,7 +13,26 @@ class KaryawanController extends Controller
      */
     public function index()
     {
-        //
+        $karyawans = Karyawan::query()->latest();
+        $keyword = request('keyword');
+
+        if ($keyword) {
+        $karyawans->where('nama_karyawan', 'like', '%' . $keyword . '%');
+    }
+
+        $departemen_id = request('departemen_id');
+
+    if ($departemen_id) {
+    $karyawans->where('departemen_id', $departemen_id);
+    }
+
+    return view('Karyawan.index', [
+    'title' => 'Karyawan',
+
+    'departemens' => Departemen::query()->latest()->get(),
+
+    'karyawans' => $karyawans->paginate(5)->withQueryString(),
+    ]);
     }
 
     /**

@@ -1,11 +1,12 @@
 <?php
 
-
+use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\DepartemenController;
 use App\Http\Controllers\AbsenController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('', [AbsenController::class, 'index']);
+
 
 Route::get('/absen', [AbsenController::class, 'index'])->name('Absen.index');
 Route::get('/absen/create', [AbsenController::class, 'create'])->name('Absen.create');
@@ -20,3 +21,5 @@ Route::get('/departemen/{departemen}/edit', [DepartemenController::class, 'edit'
 Route::put('/departemen/{departemen}', [DepartemenController::class, 'update'])->name('Departemen.update');
 Route::delete('/departemen/{departemen}', [DepartemenController::class, 'destroy'])->name('Departemen.destroy');
 Route::get('/departemen/{departemen}', [DepartemenController::class, 'show'])->name('Departemen.show');
+Route::resource('Karyawan', KaryawanController::class);
+
