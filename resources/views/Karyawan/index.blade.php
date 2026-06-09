@@ -33,7 +33,7 @@
                 </select>
 
             </div>
-
+            <div class="col-md-4"><button type="submit" class="btn btn-success">Search</button></div>
             <div class="col-md-4">
                 <button type="submit" class="btn btn-success">Search</button>
             </div>
@@ -51,6 +51,8 @@
                 <th>Nama Karyawan</th>
                 <th>Jabatan</th>
                 <th>Departemen</th>
+                <th>No HP</th>
+                <th>Alamat</th>
             </tr>
 
         </thead>
@@ -63,10 +65,12 @@
                     <td>{{ $karyawan->nama_karyawan }}</td>
                     <td>{{ $karyawan->jabatan }}</td>
                     <td>{{ $karyawan->departemen->nama_departemen }}</td>
+                    <td>{{ $karyawan->no_hp }}</td>
+                    <td>{{ $karyawan->alamat }}</td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="4" class="text-center">Data Karyawan Tidak Ditemukan</td>
+                    <td colspan="6" class="text-center">Data Karyawan Tidak Ditemukan</td>
                 </tr>
             @endforelse
 

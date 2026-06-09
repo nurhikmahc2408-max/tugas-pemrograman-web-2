@@ -40,7 +40,10 @@ class KaryawanController extends Controller
      */
     public function create()
     {
-        //
+        return view('Karyawan.create', 
+        ['title' => 'Tambah Karyawan',
+        'departemens' => Departemen::query()->latest()->get(),
+        ]);
     }
 
     /**
