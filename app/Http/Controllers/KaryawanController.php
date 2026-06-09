@@ -40,9 +40,8 @@ class KaryawanController extends Controller
      */
     public function create()
     {
-        return view('Karyawan.create', 
-        ['title' => 'Tambah Karyawan',
-        'departemens' => Departemen::query()->latest()->get(),
+        return view('Karyawan.create', [
+            'title' => 'Tambah Karyawan',
         ]);
     }
 
@@ -51,7 +50,37 @@ class KaryawanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+
+    'nama_karyawan' => 'required|max:255',
+    'jabatan' => 'required|max:255',
+    'alamat' => 'required|max:255',
+    'no_hp' => 'required|max:255',
+    'departemen_id' => 'required|exists:departemens,id',
+
+], [
+
+    'nama_karyawan.required' => 'Nama Karyawan tidak boleh kosong',
+    'nama_karyawan.max' => 'Nama Karyawan maksimal 255 karakter',
+
+    'jabatan.required' => 'Jabatan tidak boleh kosong',
+    'jabatan.max' => 'Jabatan maksimal 255 karakter',
+
+    'alamat.required' => 'Alamat tidak boleh kosong',
+    'alamat.max' => 'Alamat maksimal 255 karakter',
+
+    'no_hp.required' => 'Nomor HP tidak boleh kosong',
+    'no_hp.max' => 'Nomor HP maksimal 255 karakter',
+
+    'departemen_id.required' => 'Departemen tidak boleh kosong',
+    'departemen_id.exists' => 'Departemen yang dipilih tidak ditemukan',
+
+]);
+
+Karyawan::create($validated);
+
+return to_route('karyawan.index')
+    ->withSuccess('Data Karyawan berhasil ditambahkan');
     }
 
     /**
@@ -67,15 +96,48 @@ class KaryawanController extends Controller
      */
     public function edit(Karyawan $karyawan)
     {
-        //
+        return view('Karyawan.edit', [
+            'title' => 'Edit Karyawan',
+            'karyawan' => $karyawan,
+            'departemens' => Departemen::all(),
+        ]);
     }
+    
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Karyawan $karyawan)
     {
-        //
+        $validated = $request->validate([
+    'nama_karyawan' => 'required|max:255',
+    'jabatan' => 'required|max:255',
+    'alamat' => 'required|max:255',
+    'no_hp' => 'required|max:255',
+    'departemen_id' => 'required|exists:departemens,id',
+], [
+
+    'nama_karyawan.required' => 'Nama Karyawan tidak boleh kosong',
+    'nama_karyawan.max' => 'Nama Karyawan maksimal 255 karakter',
+
+    'jabatan.required' => 'Jabatan tidak boleh kosong',
+    'jabatan.max' => 'Jabatan maksimal 255 karakter',
+
+    'alamat.required' => 'Alamat tidak boleh kosong',
+    'alamat.max' => 'Alamat maksimal 255 karakter',
+
+    'no_hp.required' => 'Nomor HP tidak boleh kosong',
+    'no_hp.max' => 'Nomor HP maksimal 255 karakter',
+
+    'departemen_id.required' => 'Departemen tidak boleh kosong',
+    'departemen_id.exists' => 'Departemen yang dipilih tidak ditemukan',
+
+]);
+
+$karyawan->update($validated);
+
+return to_route('karyawan.index')
+    ->withSuccess('Data Karyawan berhasil diubah');
     }
 
     /**

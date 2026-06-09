@@ -30,7 +30,7 @@
 
                     <a class="nav-link" href="{{ route('Departemen.index') }}">Departemen</a>
 
-                    <a class="nav-link" href="{{ route('Karyawan.index') }}">Karyawan</a>
+                    <a class="nav-link" href="{{ route('karyawan.index') }}">Karyawan</a>
 
                 </div>
             </div>

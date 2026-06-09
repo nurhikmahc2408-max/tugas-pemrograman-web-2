@@ -21,5 +21,4 @@ Route::get('/departemen/{departemen}/edit', [DepartemenController::class, 'edit'
 Route::put('/departemen/{departemen}', [DepartemenController::class, 'update'])->name('Departemen.update');
 Route::delete('/departemen/{departemen}', [DepartemenController::class, 'destroy'])->name('Departemen.destroy');
 Route::get('/departemen/{departemen}', [DepartemenController::class, 'show'])->name('Departemen.show');
-Route::resource('Karyawan', KaryawanController::class);
-
+Route::resource('karyawan', KaryawanController::class);

@@ -33,7 +33,10 @@
                 </select>
 
             </div>
-            <div class="col-md-4"><button type="submit" class="btn btn-success">Search</button></div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-success">Search</button>
+            </div>
+
             <div class="col-md-4">
                 <button type="submit" class="btn btn-success">Search</button>
             </div>
@@ -53,6 +56,7 @@
                 <th>Departemen</th>
                 <th>No HP</th>
                 <th>Alamat</th>
+                <th>Aksi</th>
             </tr>
 
         </thead>
@@ -67,16 +71,21 @@
                     <td>{{ $karyawan->departemen->nama_departemen }}</td>
                     <td>{{ $karyawan->no_hp }}</td>
                     <td>{{ $karyawan->alamat }}</td>
+                    <td style="white-space: nowrap;">
+                        <a class="btn btn-warning btn-sm" href="{{ route('karyawan.edit', $karyawan) }}"
+                            role="button">edit</a>
+                    </td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="6" class="text-center">Data Karyawan Tidak Ditemukan</td>
+                    <td colspan="7" class="text-center">Data Karyawan Tidak Ditemukan</td>
                 </tr>
             @endforelse
 
         </tbody>
 
     </table>
+
 
     {{ $karyawans->links() }}
 
