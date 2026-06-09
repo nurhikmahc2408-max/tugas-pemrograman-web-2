@@ -33,7 +33,7 @@
                 <th>No</th>
                 <th>Nama Departemen</th>
                 <th>Kode Departemen</th>
-                <th>Lokasi</th>
+                <th>lokasi</th>
                 <th style="width: 160px;">Aksi</th>
             </tr>
 
@@ -51,13 +51,15 @@
                     <td style="white-space: nowrap;">
                         <a class="btn btn-warning btn-sm"
                             href="{{ route('Departemen.edit', $item) }}"role="button">Edit</a>
+                        <form action="{{ route('Departemen.destroy', $item) }}" method="POST" class="d-inline">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-danger btn-sm"
+                                onclick="return confirm('Anda yakin?')">Delete</button>
+                        </form>
+                    </td>
                 </tr>
-
-                </td>
             @empty
-                <tr>
-                    <td colspan="4" class="text-center">Data Departemen Tidak Ditemukan</td>
-                </tr>
             @endforelse
 
         </tbody>

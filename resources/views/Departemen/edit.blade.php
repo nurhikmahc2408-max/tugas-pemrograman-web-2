@@ -36,12 +36,11 @@
 
         <div class="mb-3">
 
-            <label for="alamat_kantor" class="form-label">Alamat Kantor</label>
+            <label for="lokasi" class="form-label">Lokasi</label>
 
-            <textarea class="form-control @error('alamat_kantor') is-invalid @enderror" id="alamat_kantor" name="alamat_kantor"
-                rows="3">{{ old('alamat_kantor', $departemen->alamat_kantor) }}</textarea>
+            <textarea class="form-control @error('lokasi') is-invalid @enderror" id="lokasi" name="lokasi" rows="3">{{ old('lokasi', $departemen->lokasi) }}</textarea>
 
-            @error('alamat_kantor')
+            @error('lokasi')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
 

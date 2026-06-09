@@ -16,42 +16,42 @@ class DepartemenSeeder extends Seeder
             [
                 'nama_departemen' => 'IT',
                 'kode_departemen' => 'DEP' . fake()->unique()->numberBetween(100, 999),
-                'alamat_kantor' => 'Lantai 3 Gedung Utama',
+                'lokasi' => 'Lantai 3 Gedung Utama',
             ],
             [
                 'nama_departemen' => 'Keuangan',
                 'kode_departemen' => 'DEP' . fake()->unique()->numberBetween(100, 999),
-                'alamat_kantor' => 'Lantai 2 Gedung Utama',
+                'lokasi' => 'Lantai 2 Gedung Utama',
             ],
             [
                 'nama_departemen' => 'SDM',
                 'kode_departemen' => 'DEP' . fake()->unique()->numberBetween(100, 999),
-                'alamat_kantor' => 'Lantai 1 Gedung Utama',
+                'lokasi' => 'Lantai 1 Gedung Utama',
             ],
             [
                 'nama_departemen' => 'Marketing',
                 'kode_departemen' => 'DEP' . fake()->unique()->numberBetween(100, 999),
-                'alamat_kantor' => 'Gedung Marketing',
+                'lokasi' => 'Gedung Marketing',
             ],
             [
                 'nama_departemen' => 'Produksi',
                 'kode_departemen' => 'DEP' . fake()->unique()->numberBetween(100, 999),
-                'alamat_kantor' => 'Area Produksi',
+                'lokasi' => 'Area Produksi',
             ],
             [
                 'nama_departemen' => 'Operasional',
                 'kode_departemen' => 'DEP' . fake()->unique()->numberBetween(100, 999),
-                'alamat_kantor' => 'Gedung Operasional',
+                'lokasi' => 'Gedung Operasional',
             ],
             [
                 'nama_departemen' => 'Logistik',
                 'kode_departemen' => 'DEP' . fake()->unique()->numberBetween(100, 999),
-                'alamat_kantor' => 'Gudang Utama',
+                'lokasi' => 'Gudang Utama',
             ],
             [
                 'nama_departemen' => 'Customer Service',
                 'kode_departemen' => 'DEP' . fake()->unique()->numberBetween(100, 999),
-                'alamat_kantor' => 'Lantai Dasar',
+                'lokasi' => 'Lantai Dasar',
             ],
         ];
 
