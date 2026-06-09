@@ -70,7 +70,11 @@ return to_route('Departemen.index')
      */
     public function show(Departemen $departemen)
     {
-        //
+        return view('Departemen.show', 
+        ['title' => 'Detail Departemen',
+        'departemen'=> $departemen,
+        
+        ]);
     }
 
     /**

@@ -49,6 +49,8 @@
                     <td>{{ $item->kode_departemen }}</td>
                     <td>{{ $item->lokasi }}</td>
                     <td style="white-space: nowrap;">
+                        <a class="btn btn-info btn-sm"
+                            href="{{ route('Departemen.show', $item) }}"role="button">Detail</a>
                         <a class="btn btn-warning btn-sm"
                             href="{{ route('Departemen.edit', $item) }}"role="button">Edit</a>
                         <form action="{{ route('Departemen.destroy', $item) }}" method="POST" class="d-inline">
@@ -60,6 +62,9 @@
                     </td>
                 </tr>
             @empty
+                <tr>
+                    <td colspan="5" class="text-center">Data Departemen Tidak Ditemukan</td>
+                </tr>
             @endforelse
 
         </tbody>
