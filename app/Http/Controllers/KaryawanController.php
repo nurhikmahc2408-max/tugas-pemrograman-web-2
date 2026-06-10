@@ -27,7 +27,7 @@ class KaryawanController extends Controller
     }
 
     return view('Karyawan.index', [
-    'title' => 'Karyawan',
+    'title' => 'Data Karyawan',
 
     'departemens' => Departemen::query()->latest()->get(),
 
@@ -41,7 +41,7 @@ class KaryawanController extends Controller
     public function create()
     {
         return view('Karyawan.create', [
-            'title' => 'Tambah Karyawan',
+            'title' => 'Tambah Data Karyawan',
         ]);
     }
 
@@ -88,7 +88,10 @@ return to_route('karyawan.index')
      */
     public function show(Karyawan $karyawan)
     {
-        //
+        return view('Karyawan.show', [
+            'title' => 'Detail Data Karyawan',
+            'karyawan' => $karyawan,
+        ]);
     }
 
     /**
@@ -97,7 +100,7 @@ return to_route('karyawan.index')
     public function edit(Karyawan $karyawan)
     {
         return view('Karyawan.edit', [
-            'title' => 'Edit Karyawan',
+            'title' => 'Edit Data Karyawan',
             'karyawan' => $karyawan,
             'departemens' => Departemen::all(),
         ]);
@@ -145,6 +148,7 @@ return to_route('karyawan.index')
      */
     public function destroy(Karyawan $karyawan)
     {
-        //
+        $karyawan->delete();
+        return to_route('karyawan.index')->withSuccess('Data Karyawan berhasil dihapus');
     }
 }

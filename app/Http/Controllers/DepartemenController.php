@@ -31,7 +31,7 @@ class DepartemenController extends Controller
     public function create()
     {
         return view('Departemen.create', 
-        ['title' => 'Tambah Departemen',]);
+        ['title' => 'Tambah Data Departemen',]);
     }
 
     /**
@@ -71,7 +71,7 @@ return to_route('Departemen.index')
     public function show(Departemen $departemen)
     {
         return view('Departemen.show', 
-        ['title' => 'Detail Departemen',
+        ['title' => 'Detail Data Departemen',
         'departemen'=> $departemen,
         
         ]);
@@ -83,7 +83,7 @@ return to_route('Departemen.index')
     public function edit(Departemen $departemen)
     {
         return view('Departemen.edit',[
-            'title' => 'Edit Departemen',
+            'title' => 'Edit Data Departemen',
             'departemen' => $departemen,
         ]);
     }

@@ -72,8 +72,16 @@
                     <td>{{ $karyawan->no_hp }}</td>
                     <td>{{ $karyawan->alamat }}</td>
                     <td style="white-space: nowrap;">
+                        <a class="btn btn-info btn-sm" href="{{ route('karyawan.show', $karyawan) }}"
+                            role="button">Detail</a>
                         <a class="btn btn-warning btn-sm" href="{{ route('karyawan.edit', $karyawan) }}"
                             role="button">edit</a>
+                        <form action="{{ route('karyawan.destroy', $karyawan) }}" method="POST" class="d-inline">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-danger btn-sm"
+                                onclick="return confirm('Anda yakin?')">Delete</button>
+                        </form>
                     </td>
                 </tr>
             @empty
